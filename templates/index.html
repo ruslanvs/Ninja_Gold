@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css') }}">
+    <title>Ninja Gold</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Ninja Gold Game</h1>
+        <p>Your Gold: {{ gold_balance }}</p>
+        <div>
+            <div class="places">
+                <h2>Farm</h2>
+                <p>(Earns 10-20 golds)</p>
+                <form action="/process_money" method="POST">
+                    <input type="hidden" name="place" value="farm">
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="places">
+                <h2>Cave</h2>
+                <p>(Earns 5-10 golds)</p>
+                <form action="/process_money" method="POST">
+                    <input type="hidden" name="place" value="cave">
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="places">
+                <h2>House</h2>
+                <p>(Earns 2-5 golds)</p>
+                <form action="/process_money" method="POST">
+                    <input type="hidden" name="place" value="house">
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="places">
+                <h2>Casino</h2>
+                <p>(Earns/takes 0-50 golds)</p>
+                <form action="/process_money" method="POST">
+                    <input type="hidden" name="place" value="casino">
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+        </div>
+        <h3>Activities:</h3>
+        <div id="activities">
+            {{ activities|safe }}
+        </div>
+
+        <form action="/reset" method="POST">
+            <input type="submit" value="Reset">
+        </form>
+
+    </div>
+    
+</body>
+</html>
