@@ -1,0 +1,1 @@
+Flask, sessions, Python OOP educational assignment at Coding Dojo
